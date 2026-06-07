@@ -1,0 +1,497 @@
+/* ============ VARIÁVEIS DE COR ============ */
+:root {
+    --primary-orange: #FF8C00;
+    --dark-black: #0a0a0a;
+    --white: #ffffff;
+    --light-gray: #f5f5f5;
+    --yellow-vibrant: #FFD700;
+    --accent-red: #FF0000;
+    --accent-blue: #0099FF;
+    --text-gray: #cccccc;
+}
+
+/* ============ RESET GLOBAL ============ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--dark-black);
+    color: var(--white);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ============ HEADER ============ */
+.header {
+    background-color: var(--dark-black);
+    border-bottom: 2px solid var(--primary-orange);
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 20px rgba(255, 140, 0, 0.1);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+    color: var(--primary-orange);
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px rgba(255, 140, 0, 0.3);
+}
+
+/* ============ CTA BUTTONS ============ */
+.cta-button {
+    display: inline-block;
+    padding: 12px 24px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: 2px solid var(--primary-orange);
+    font-size: 14px;
+}
+
+.header-cta {
+    background-color: transparent;
+    color: var(--primary-orange);
+}
+
+.header-cta:hover {
+    background-color: var(--primary-orange);
+    color: var(--dark-black);
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(255, 140, 0, 0.5);
+}
+
+.cta-primary {
+    background-color: var(--primary-orange);
+    color: var(--dark-black);
+    border-color: var(--primary-orange);
+    font-size: 16px;
+    padding: 15px 32px;
+    margin-top: 20px;
+}
+
+.cta-primary:hover {
+    background-color: transparent;
+    color: var(--primary-orange);
+    box-shadow: 0 0 30px rgba(255, 140, 0, 0.6);
+}
+
+.cta-final-btn {
+    background-color: var(--primary-orange);
+    color: var(--dark-black);
+    border-color: var(--primary-orange);
+    font-size: 18px;
+    padding: 18px 40px;
+    margin-top: 30px;
+}
+
+.cta-final-btn:hover {
+    background-color: transparent;
+    color: var(--primary-orange);
+    box-shadow: 0 0 40px rgba(255, 140, 0, 0.8);
+    transform: scale(1.05);
+}
+
+/* ============ HERO SECTION ============ */
+.hero {
+    padding: 80px 0;
+    background: linear-gradient(135deg, var(--dark-black) 0%, #1a1a1a 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        linear-gradient(90deg, transparent 20%, rgba(255, 140, 0, 0.05) 50%, transparent 80%),
+        linear-gradient(0deg, transparent 20%, rgba(255, 140, 0, 0.05) 50%, transparent 80%);
+    background-size: 50px 50px;
+    pointer-events: none;
+}
+
+.hero-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+.hero-text h1 {
+    font-size: 48px;
+    font-weight: 900;
+    margin-bottom: 20px;
+    line-height: 1.2;
+    color: var(--white);
+}
+
+.hero-text .accent {
+    color: var(--primary-orange);
+}
+
+.hero-subtitle {
+    font-size: 18px;
+    color: var(--text-gray);
+    margin-bottom: 30px;
+    line-height: 1.8;
+}
+
+/* ============ CAMERA VISUAL (HERO IMAGE) ============ */
+.hero-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 420px;
+}
+
+.hero-image-frame {
+    position: relative;
+    width: 100%;
+    max-width: 520px;
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: 0 20px 80px rgba(0, 0, 0, 0.45);
+}
+
+.hero-camera-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+.hero-image-frame::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at top left, rgba(255, 140, 0, 0.16), transparent 30%);
+    pointer-events: none;
+}
+
+.hero-image-frame::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.18) 100%);
+    pointer-events: none;
+}
+
+.light-effect {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    opacity: 0.35;
+    animation: light-giro 3s linear infinite;
+}
+
+.light-effect.blue {
+    background: radial-gradient(circle, var(--accent-blue), transparent);
+    top: -40px;
+    right: -30px;
+}
+
+.light-effect.red {
+    background: radial-gradient(circle, var(--accent-red), transparent);
+    bottom: -40px;
+    left: -30px;
+    animation: light-giro 3s linear infinite reverse;
+}
+
+@keyframes light-giro {
+    0% { transform: rotate(0deg) scale(1); opacity: 0.3; }
+    50% { opacity: 0.65; }
+    100% { transform: rotate(360deg) scale(1); opacity: 0.3; }
+}
+
+.light-effect.blue {
+    background: radial-gradient(circle, var(--accent-blue), transparent);
+    top: -20px;
+    right: -20px;
+}
+
+.light-effect.red {
+    background: radial-gradient(circle, var(--accent-red), transparent);
+    bottom: -20px;
+    left: -20px;
+    animation: light-giro 3s linear infinite reverse;
+}
+
+@keyframes light-giro {
+    0% { transform: rotate(0deg) scale(1); opacity: 0.3; }
+    50% { opacity: 0.6; }
+    100% { transform: rotate(360deg) scale(1); opacity: 0.3; }
+}
+
+/* ============ HOW IT WORKS SECTION ============ */
+.how-it-works {
+    padding: 80px 0;
+    background-color: var(--dark-black);
+    border-top: 2px solid var(--primary-orange);
+    border-bottom: 2px solid var(--primary-orange);
+}
+
+.section-title {
+    font-size: 42px;
+    text-align: center;
+    margin-bottom: 60px;
+    color: var(--white);
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 100px;
+    height: 4px;
+    background-color: var(--primary-orange);
+    margin: 15px auto 0;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px;
+}
+
+.feature-card {
+    background: linear-gradient(135deg, rgba(255, 140, 0, 0.1), rgba(255, 140, 0, 0.05));
+    border: 2px solid var(--primary-orange);
+    border-radius: 15px;
+    padding: 40px;
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(255, 140, 0, 0.2);
+}
+
+.feature-icon {
+    font-size: 50px;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.feature-card h3 {
+    font-size: 24px;
+    margin-bottom: 8px;
+    color: var(--white);
+}
+
+.feature-subtitle {
+    font-size: 14px;
+    color: var(--primary-orange);
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.feature-text {
+    color: var(--text-gray);
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+.feature-text strong {
+    color: var(--yellow-vibrant);
+}
+
+/* ============ WHY CHOOSE SECTION ============ */
+.why-choose {
+    padding: 80px 0;
+    background-color: var(--dark-black);
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.benefit-card {
+    background: linear-gradient(135deg, transparent, rgba(255, 140, 0, 0.08));
+    border-left: 4px solid var(--primary-orange);
+    border-radius: 10px;
+    padding: 30px;
+    transition: all 0.3s ease;
+}
+
+.benefit-card:hover {
+    background: linear-gradient(135deg, transparent, rgba(255, 140, 0, 0.15));
+    transform: translateX(10px);
+}
+
+.benefit-icon {
+    font-size: 40px;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.benefit-card h3 {
+    font-size: 22px;
+    margin-bottom: 15px;
+    color: var(--white);
+}
+
+.benefit-card p {
+    color: var(--text-gray);
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+/* ============ CTA FINAL SECTION ============ */
+.cta-final {
+    padding: 100px 0;
+    background: linear-gradient(135deg, rgba(255, 140, 0, 0.15), rgba(255, 140, 0, 0.05));
+    border-top: 2px solid var(--primary-orange);
+    border-bottom: 2px solid var(--primary-orange);
+}
+
+.cta-final-content {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.cta-final-content h2 {
+    font-size: 42px;
+    margin-bottom: 20px;
+    color: var(--white);
+}
+
+.cta-final-content p {
+    font-size: 18px;
+    color: var(--text-gray);
+    margin-bottom: 20px;
+    line-height: 1.8;
+}
+
+/* ============ FOOTER ============ */
+.footer {
+    background-color: #050505;
+    border-top: 1px solid var(--primary-orange);
+    padding: 30px 0;
+    text-align: center;
+    color: var(--text-gray);
+}
+
+.footer p {
+    font-size: 14px;
+}
+
+/* ============ RESPONSIVO ============ */
+@media (max-width: 768px) {
+    .hero-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .hero-text h1 {
+        font-size: 36px;
+    }
+
+    .hero-subtitle {
+        font-size: 16px;
+    }
+
+    .section-title {
+        font-size: 32px;
+    }
+
+    .logo {
+        font-size: 22px;
+    }
+
+    .header-cta {
+        font-size: 12px;
+        padding: 10px 16px;
+    }
+
+    .cta-primary,
+    .cta-final-btn {
+        font-size: 14px;
+        padding: 12px 20px;
+    }
+
+    .feature-card,
+    .benefit-card {
+        padding: 25px;
+    }
+
+    .cta-final-content h2 {
+        font-size: 28px;
+    }
+
+    .cta-final-content p {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-content {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .hero {
+        padding: 40px 0;
+    }
+
+    .hero-text h1 {
+        font-size: 28px;
+    }
+
+    .hero-subtitle {
+        font-size: 14px;
+    }
+
+    .section-title {
+        font-size: 26px;
+    }
+
+    .feature-card,
+    .benefit-card {
+        padding: 20px;
+    }
+
+    .cta-final {
+        padding: 50px 0;
+    }
+
+    .cta-final-content h2 {
+        font-size: 24px;
+    }
+}
